@@ -1,14 +1,16 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../redux/authSlice'
+import { useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
    const dispatch=useDispatch()
+   const navigate= useNavigate()
+
     const loginFunc= (e)=>{
         e.preventDefault();
         dispatch(login({user:"user1", token:"token1"}))
-        console.log("hello");
-        
+        navigate("/home")
     }
   return (
     <div>
